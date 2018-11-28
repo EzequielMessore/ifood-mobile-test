@@ -1,9 +1,11 @@
 package br.com.ezequiel.twitterhappines.core.di
 
 import br.com.ezequiel.twitterhappines.BuildConfig
+import br.com.ezequiel.twitterhappines.data.ws.user.UserApi
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -27,7 +29,7 @@ class NetworkModule @Inject constructor() {
 
     @Provides
     @Singleton
-    fun providesOkHttpClient(): OkHttpClient {
+    fun providesOkHttpClient(interceptor: Interceptor): OkHttpClient {
         val okHttpClientBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = if (BuildConfig.DEBUG) {
@@ -35,7 +37,26 @@ class NetworkModule @Inject constructor() {
         } else {
             HttpLoggingInterceptor.Level.NONE
         }
-        okHttpClientBuilder.addInterceptor(httpLoggingInterceptor)
+        okHttpClientBuilder
+            .addInterceptor(httpLoggingInterceptor)
+            .addInterceptor(interceptor)
         return okHttpClientBuilder.build()
     }
+
+    @Provides
+    @Singleton
+    fun provideInterceptorLogging(): Interceptor {
+        return Interceptor { chain ->
+            val original = chain.request()
+            val request = original.newBuilder()
+                .header("Authorization", "Bearer ${BuildConfig.API_KEY}")
+                .build()
+            chain.proceed(request)
+        }
+    }
+
+
+    @Provides
+    @Singleton
+    fun providesUserApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
 }
