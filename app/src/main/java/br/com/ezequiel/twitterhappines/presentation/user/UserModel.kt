@@ -1,4 +1,4 @@
-package br.com.ezequiel.twitterhappines.presentation.model
+package br.com.ezequiel.twitterhappines.presentation.user
 
 import java.util.*
 

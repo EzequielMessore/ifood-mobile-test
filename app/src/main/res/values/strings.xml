@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Twitter Happines</string>
+    <string name="app_name">Twitter Happiness</string>
+    <string name="label_search">Search</string>
+
+    <string name="text_try_again">Try Again</string>
+    <string name="error_title">Ops! Something wrong is not right</string>
+    <string name="label_required">Mandatory field</string>
+    <string name="label_user_not_found">User not found</string>
 </resources>

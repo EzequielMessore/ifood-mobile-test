@@ -4,7 +4,7 @@ import br.com.ezequiel.twitterhappines.core.interactor.UseCaseObservable
 import br.com.ezequiel.twitterhappines.core.scheduler.ISchedulersProvider
 import br.com.ezequiel.twitterhappines.data.mappers.UserModelMapper
 import br.com.ezequiel.twitterhappines.data.ws.user.UserService
-import br.com.ezequiel.twitterhappines.presentation.model.UserModel
+import br.com.ezequiel.twitterhappines.presentation.user.UserModel
 import io.reactivex.Observable
 import javax.inject.Inject
 
