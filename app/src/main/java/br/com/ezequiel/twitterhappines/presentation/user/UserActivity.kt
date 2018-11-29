@@ -7,7 +7,9 @@ import br.com.ezequiel.twitterhappines.R
 import br.com.ezequiel.twitterhappines.core.extension.contentView
 import br.com.ezequiel.twitterhappines.core.platform.InjectableActivity
 import br.com.ezequiel.twitterhappines.databinding.ActivityUserBinding
+import br.com.ezequiel.twitterhappines.presentation.tweet.TweetActivity
 import kotlinx.android.synthetic.main.activity_user.*
+import kotlinx.android.synthetic.main.container_error.view.*
 import javax.inject.Inject
 
 class UserActivity : InjectableActivity() {
@@ -25,6 +27,7 @@ class UserActivity : InjectableActivity() {
 
     override fun init() {
         binding.viewModel = viewModel
+        binding.setLifecycleOwner(this)
 
         bindViewModels()
     }
@@ -39,24 +42,27 @@ class UserActivity : InjectableActivity() {
                 viewModel.getUser(edit.text.toString())
             }
         }
+        container_error.btn_try_again.setOnClickListener {
+            viewModel.getUser(it_search.text.toString())
+        }
     }
 
     private fun bindViewModels() {
         viewModel.state.observe(this, Observer {
             it?.let { state ->
-                handleCategoriesState(state)
+                handleUserState(state)
             }
         })
     }
 
-    private fun handleCategoriesState(state: UserState) {
+    private fun handleUserState(state: UserState) {
         when (state) {
             is UserLoading -> {
                 loading.show()
             }
             is UserData -> {
                 loading.hide()
-                println(state.data)
+                startActivity(TweetActivity.newIntent(this, state.data))
             }
             is UserError -> {
                 if (state.isNotFound()) {

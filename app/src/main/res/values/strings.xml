@@ -6,4 +6,6 @@
     <string name="error_title">Ops! Something wrong is not right</string>
     <string name="label_required">Mandatory field</string>
     <string name="label_user_not_found">User not found</string>
+    <string name="label_analyse_tweet">Analyse Tweet</string>
+    <string name="label_analyse">Analyse</string>
 </resources>

@@ -3,7 +3,7 @@ package br.com.ezequiel.twitterhappines.data.ws.user
 import com.google.gson.annotations.SerializedName
 
 data class Tweet(
-    @SerializedName("create_at")
+    @SerializedName("created_at")
     val createAt: String,
     val text: String,
     val favorited: Boolean,
@@ -11,5 +11,11 @@ data class Tweet(
     @SerializedName("retweet_count")
     val retweetCount: Int,
     @SerializedName("favorite_count")
-    val favorite_count: Int
+    val favorite_count: Int,
+    val user: UserTweet
+)
+
+data class UserTweet(
+    @SerializedName("screen_name")
+    val screenName: String
 )

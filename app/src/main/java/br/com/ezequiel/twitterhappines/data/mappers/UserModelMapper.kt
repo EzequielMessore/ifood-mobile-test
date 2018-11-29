@@ -8,10 +8,12 @@ import javax.inject.Inject
 class UserModelMapper @Inject constructor() : Mapper<User, UserModel> {
     override fun transform(from: User): UserModel =
         UserModel(
+            id = from.id,
             name = from.name,
             screenName = from.screenName,
             createdAt = from.createdAt.toDate(),
             image = from.image,
-            imageBackground = from.imageBackground
+            bannerUrl = from.bannerUrl ?: "",
+            backgroundColor = from.backgroundColor
         )
 }

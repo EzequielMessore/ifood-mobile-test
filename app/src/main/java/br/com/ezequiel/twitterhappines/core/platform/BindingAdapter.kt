@@ -5,12 +5,15 @@ import android.arch.lifecycle.Observer
 import android.databinding.BindingAdapter
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.ImageView
 import br.com.ezequiel.twitterhappines.core.extension.getParentActivity
 import br.com.ezequiel.twitterhappines.core.extension.hide
 import br.com.ezequiel.twitterhappines.core.extension.show
 import br.com.ezequiel.twitterhappines.presentation.user.UserData
 import br.com.ezequiel.twitterhappines.presentation.user.UserError
 import br.com.ezequiel.twitterhappines.presentation.user.UserState
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_user.view.*
 
 object BindingAdapter {
@@ -44,6 +47,17 @@ object BindingAdapter {
                 }
             })
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter("roundedImage")
+    fun setImageRoundedUrl(imageView: ImageView, url: String) {
+        Glide.with(imageView.context).load(url).apply(RequestOptions.circleCropTransform()).into(imageView)
+    }
+    @JvmStatic
+    @BindingAdapter("image")
+    fun setImageUrl(imageView: ImageView, url: String) {
+        Glide.with(imageView.context).load(url).into(imageView)
     }
 
 }
