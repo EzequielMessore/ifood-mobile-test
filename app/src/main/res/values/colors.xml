@@ -7,4 +7,8 @@
     <color name="button_color">#24a5d3</color>
     <color name="error_text_color">#8e8e93</color>
     <color name="ripple_background">#33969696</color>
+
+    <color name="happy_color">#eded56</color>
+    <color name="neutral_color">#aeaeae</color>
+    <color name="sad_color">#2626e6</color>
 </resources>

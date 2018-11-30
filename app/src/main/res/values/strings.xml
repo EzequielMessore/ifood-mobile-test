@@ -8,4 +8,7 @@
     <string name="label_user_not_found">User not found</string>
     <string name="label_analyse_tweet">Analyse Tweet</string>
     <string name="label_analyse">Analyse</string>
+    <string name="label_happy">Happy Tweet %s</string>
+    <string name="label_neutral">Neutral Tweet %s</string>
+    <string name="label_sad">Sad Tweet %s</string>
 </resources>

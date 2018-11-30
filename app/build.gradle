@@ -11,6 +11,11 @@ if (hasProperty("TWITTER_API_KEY")) {
     API_KEY = TWITTER_API_KEY
 }
 
+def LANGUAGE_KEY = ""
+if (hasProperty("LANGUAGE_API_KEY")) {
+    LANGUAGE_KEY = LANGUAGE_API_KEY
+}
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -20,16 +25,16 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "API_KEY", API_KEY
+        buildConfigField "String", "LANGUAGE_KEY", LANGUAGE_KEY
+
     }
     buildTypes {
         release {
-            buildConfigField "String", "API_KEY", API_KEY
-
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            buildConfigField "String", "API_KEY", API_KEY
         }
     }
     dataBinding {

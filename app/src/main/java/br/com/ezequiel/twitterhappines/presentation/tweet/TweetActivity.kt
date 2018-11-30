@@ -5,6 +5,8 @@ import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import br.com.ezequiel.twitterhappines.R
 import br.com.ezequiel.twitterhappines.core.extension.contentView
 import br.com.ezequiel.twitterhappines.core.platform.InjectableActivity
@@ -15,6 +17,7 @@ import br.com.ezequiel.twitterhappines.presentation.user.UserState
 import br.com.ezequiel.twitterhappines.presentation.user.UserViewModel
 import kotlinx.android.synthetic.main.activity_tweet.*
 import javax.inject.Inject
+
 
 class TweetActivity : InjectableActivity() {
 
@@ -33,6 +36,13 @@ class TweetActivity : InjectableActivity() {
     override fun layoutResource(): Int = R.layout.activity_tweet
 
     override fun init() {
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = Color.TRANSPARENT
+        }
+
         binding.viewModel = viewModel
         binding.user = getUser()
 
@@ -44,13 +54,20 @@ class TweetActivity : InjectableActivity() {
     }
 
     override fun insertListener() {
-
+        adapter.listener = {
+            viewModel.analyseText(it)
+        }
     }
 
     private fun bindViewModels() {
         viewModel.state.observe(this, Observer {
             it?.let { state ->
                 handleState(state)
+            }
+        })
+        viewModel.tweets.observe(this, Observer {
+            it?.let { list ->
+                adapter.items = list
             }
         })
     }
@@ -75,7 +92,7 @@ class TweetActivity : InjectableActivity() {
     companion object {
         private const val USER_MODEL = "USER_MODEL"
 
-        fun newIntent(context: Context, userModel: UserModel) =
+        fun newIntent(context: Context, userModel: UserModel): Intent =
             Intent(context, TweetActivity::class.java).putExtra(USER_MODEL, userModel)
     }
 }
