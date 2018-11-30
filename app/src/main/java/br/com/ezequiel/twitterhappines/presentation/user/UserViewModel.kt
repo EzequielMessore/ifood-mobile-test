@@ -5,7 +5,7 @@ import br.com.ezequiel.twitterhappines.core.platform.BaseViewModel
 import br.com.ezequiel.twitterhappines.domain.interactor.AnalyseText
 import br.com.ezequiel.twitterhappines.domain.interactor.GetTweetsByUserId
 import br.com.ezequiel.twitterhappines.domain.interactor.GetUser
-import br.com.ezequiel.twitterhappines.presentation.tweet.TweetModel
+import br.com.ezequiel.twitterhappines.presentation.tweet.*
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 import javax.inject.Inject
@@ -17,6 +17,7 @@ class UserViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     val state: MutableLiveData<UserState> = MutableLiveData()
+    val tweetState: MutableLiveData<TweetState> = MutableLiveData()
     val tweets: MutableLiveData<List<TweetModel>> = MutableLiveData()
 
     fun getUser(username: String) {
@@ -31,19 +32,19 @@ class UserViewModel @Inject constructor(
     }
 
     fun getTweetsById(userId: Int) {
-        state.value = UserLoading
+        tweetState.value = TweetLoading
         getTweetsByUserId(userId)
             .subscribeBy(
                 onNext = {
                     tweets.value = it
-                    state.value = TweetData(it)
+                    tweetState.value = TweetData(it)
                 },
                 onError = ::onError
             ).addTo(disposable)
     }
 
     fun analyseText(tweet: TweetModel) {
-        state.value = UserLoading
+        tweetState.value = TweetLoadingItem
         analyseTextTask(tweet.text)
             .subscribeBy(
                 onNext = {
@@ -54,6 +55,9 @@ class UserViewModel @Inject constructor(
                         } else {
                             tweet
                         }
+                    }
+                    tweets.value?.let { list ->
+                        tweetState.value = TweetData(list)
                     }
                 },
                 onError = ::onError

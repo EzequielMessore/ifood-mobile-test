@@ -11,9 +11,7 @@ import br.com.ezequiel.twitterhappines.R
 import br.com.ezequiel.twitterhappines.core.extension.contentView
 import br.com.ezequiel.twitterhappines.core.platform.InjectableActivity
 import br.com.ezequiel.twitterhappines.databinding.ActivityTweetBinding
-import br.com.ezequiel.twitterhappines.presentation.user.TweetData
 import br.com.ezequiel.twitterhappines.presentation.user.UserModel
-import br.com.ezequiel.twitterhappines.presentation.user.UserState
 import br.com.ezequiel.twitterhappines.presentation.user.UserViewModel
 import kotlinx.android.synthetic.main.activity_tweet.*
 import javax.inject.Inject
@@ -60,11 +58,6 @@ class TweetActivity : InjectableActivity() {
     }
 
     private fun bindViewModels() {
-        viewModel.state.observe(this, Observer {
-            it?.let { state ->
-                handleState(state)
-            }
-        })
         viewModel.tweets.observe(this, Observer {
             it?.let { list ->
                 adapter.items = list
@@ -72,20 +65,6 @@ class TweetActivity : InjectableActivity() {
         })
     }
 
-    private fun handleState(state: UserState) {
-        when (state) {
-//            is CategoriesLoading -> {
-//                loading.show()
-//            }
-            is TweetData -> {
-//                loading.hide()
-                adapter.items = state.data
-            }
-//            is CategoriesError -> {
-//                loading.hide()
-//            }
-        }
-    }
 
     private fun getUser() = intent.getParcelableExtra<UserModel>(USER_MODEL)
 

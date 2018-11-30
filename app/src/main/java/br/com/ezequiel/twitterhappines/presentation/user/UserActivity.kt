@@ -9,6 +9,7 @@ import br.com.ezequiel.twitterhappines.core.platform.InjectableActivity
 import br.com.ezequiel.twitterhappines.databinding.ActivityUserBinding
 import br.com.ezequiel.twitterhappines.presentation.tweet.TweetActivity
 import kotlinx.android.synthetic.main.activity_user.*
+import kotlinx.android.synthetic.main.base_content.*
 import kotlinx.android.synthetic.main.container_error.view.*
 import javax.inject.Inject
 
@@ -61,8 +62,8 @@ class UserActivity : InjectableActivity() {
                 loading.show()
             }
             is UserData -> {
-                loading.hide()
                 startActivity(TweetActivity.newIntent(this, state.data))
+                loading.hide()
             }
             is UserError -> {
                 if (state.isNotFound()) {
