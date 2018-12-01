@@ -44,7 +44,7 @@ class UserActivity : InjectableActivity() {
             }
         }
         container_error.btn_try_again.setOnClickListener {
-            viewModel.getUser(it_search.text.toString())
+            viewModel.state.value = UserData(null)
         }
     }
 
@@ -62,8 +62,10 @@ class UserActivity : InjectableActivity() {
                 loading.show()
             }
             is UserData -> {
-                startActivity(TweetActivity.newIntent(this, state.data))
-                loading.hide()
+                state.data?.let {
+                    startActivity(TweetActivity.newIntent(this, it))
+                    loading.hide()
+                }
             }
             is UserError -> {
                 if (state.isNotFound()) {
