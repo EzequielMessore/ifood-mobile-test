@@ -17,13 +17,28 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
-class NetworkModule @Inject constructor() {
+open class NetworkModule @Inject constructor() {
+
+    @Provides
+    @Singleton
+    @Named("urlTwitter")
+    open fun provideUrlTwitter(): String {
+        return "https://api.twitter.com/"
+    }
+
+    @Provides
+    @Singleton
+    @Named("urlLanguage")
+    open fun provideUrGooogleLanguage(): String {
+        return "https://language.googleapis.com"
+    }
+
     @Provides
     @Reusable
     @Named("twitter")
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    fun provideRetrofit(okHttpClient: OkHttpClient, @Named("urlTwitter") url: String): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://api.twitter.com/")
+            .baseUrl(url)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -65,9 +80,9 @@ class NetworkModule @Inject constructor() {
     @Provides
     @Reusable
     @Named("language")
-    fun provideLanguageRetrofit(@Named("language") okHttpClient: OkHttpClient): Retrofit {
+    fun provideLanguageRetrofit(@Named("language") okHttpClient: OkHttpClient, @Named("urlLanguage") url: String): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://language.googleapis.com")
+            .baseUrl(url)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

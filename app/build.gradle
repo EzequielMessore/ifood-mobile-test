@@ -26,7 +26,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "br.com.ezequiel.twitterhappines.base.runner.MockTestRunner"
         buildConfigField "String", "API_KEY", API_KEY
         buildConfigField "String", "LANGUAGE_KEY", LANGUAGE_KEY
 
@@ -106,10 +106,14 @@ dependencies {
     testImplementation "org.jetbrains.spek:spek-api:$spek_version"
     testImplementation "org.jetbrains.spek:spek-junit-platform-engine:$spek_version"
     testImplementation "org.junit.platform:junit-platform-runner:$platform_runner_version"
-    testImplementation "android.arch.core:core-testing:1.1.1"
+    testImplementation "android.arch.core:core-testing:$lifecycle_version"
+
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mockweb_version"
     androidTestImplementation "com.android.support.test:runner:$runner_version"
     androidTestImplementation "com.android.support.test:rules:$runner_version"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$espresso_version"
+    androidTestImplementation "commons-io:commons-io:$commons_io_version"
 
     //endregion
 }
