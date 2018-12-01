@@ -2,7 +2,6 @@ package br.com.ezequiel.twitterhappines.presentation.user
 
 import android.graphics.Color
 import android.os.Parcelable
-import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 import java.util.*
 
@@ -17,9 +16,7 @@ data class UserModel(
     val bannerUrl: String
 ) : Parcelable {
 
-    @IgnoredOnParcel
-    val displayName = "| @$screenName"
-    @IgnoredOnParcel
-    val color = Color.parseColor("#$backgroundColor")
+    fun displayName() = "| @$screenName"
+    fun color() = Color.parseColor("#$backgroundColor")
 
 }
