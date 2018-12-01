@@ -11,6 +11,7 @@ import org.junit.runner.RunWith
 @MediumTest
 class UserActivityTest {
     private lateinit var robot: UserRobot
+    private val username = "globoesportcom"
 
     @Before
     fun setUp() {
@@ -37,8 +38,9 @@ class UserActivityTest {
         robot
             .injectUser200()
             .start()
-            .setText("globoesportcom")
+            .setText(username)
             .clickInSearch()
+            .checkShowMessage()
     }
 
     @Test
@@ -46,8 +48,23 @@ class UserActivityTest {
         robot
             .injectUnknown500()
             .start()
-            .setText("globoesportcom")
+            .setText(username)
             .clickInSearch()
             .checkErrorIsVisible()
+    }
+
+    @Test
+    fun test_TryAgain() {
+        robot
+            .injectUnknown500()
+            .start()
+            .setText(username)
+            .clickInSearch()
+            .checkErrorIsVisible()
+            .clickInTryAgain()
+            .injectUser200()
+            .checkSearchIsVisible()
+            .clickInSearch()
+            .checkShowMessage()
     }
 }

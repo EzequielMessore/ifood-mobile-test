@@ -1,6 +1,7 @@
 package br.com.ezequiel.twitterhappines.base
 
 import android.support.annotation.IdRes
+import android.support.design.widget.Snackbar
 import android.support.test.espresso.Espresso.onData
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.ViewInteraction
@@ -52,7 +53,16 @@ open class BaseTestRobot {
         onView(withId(id)).check(matches(isDisplayed()))
     }
 
-    fun checkHintIsVisible(text: String) {
+    protected fun checkHintIsVisible(text: String) {
         onView(withHint(text)).check(matches(isDisplayed()))
+    }
+
+    protected fun checkSnackbar(text: String) {
+        withText(text).matches(
+            allOf(
+                isDescendantOfA(isAssignableFrom(Snackbar.SnackbarLayout::class.java)),
+                isCompletelyDisplayed()
+            )
+        )
     }
 }

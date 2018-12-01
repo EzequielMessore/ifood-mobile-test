@@ -58,4 +58,16 @@ class UserRobot(
         checkIdIsVisible(R.id.tv_title)
         checkIdIsVisible(R.id.btn_try_again)
     }
+
+    fun checkSearchIsVisible() = apply {
+        checkIdIsVisible(R.id.til_search)
+    }
+
+    fun clickInTryAgain() = apply {
+        clickView(R.id.btn_try_again)
+    }
+
+    fun checkShowMessage() = apply {
+        checkSnackbar(context.getString(R.string.msg_success_user))
+    }
 }
