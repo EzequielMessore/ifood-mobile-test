@@ -7,6 +7,6 @@ data class Tweet(
     @SerializedName("created_at")
     val createAt: String,
     val text: String,
-    @SerializedName("favorite_count")
-    val favorite_count: Int
+    @SerializedName("favoriteCount")
+    val favoriteCount: Int
 )

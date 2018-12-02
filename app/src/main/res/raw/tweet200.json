@@ -1,0 +1,290 @@
+[
+  {
+    "created_at": "Thu Jun 22 19:31:38 +0000 2017",
+    "id": 877972364499206144,
+    "id_str": "877972364499206144",
+    "text": "@Goncalojr93 Curte fazer um tweet em",
+    "truncated": false,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "Goncalojr93",
+          "name": "Gonçalo lima",
+          "id": 129070750,
+          "id_str": "129070750",
+          "indices": [
+            0,
+            12
+          ]
+        }
+      ],
+      "urls": []
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "in_reply_to_status_id": 877972085363978240,
+    "in_reply_to_status_id_str": "877972085363978240",
+    "in_reply_to_user_id": 129070750,
+    "in_reply_to_user_id_str": "129070750",
+    "in_reply_to_screen_name": "Goncalojr93",
+    "user": {
+      "id": 290283024,
+      "id_str": "290283024",
+      "name": "Ezequiel",
+      "screen_name": "ZicaMessore",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 40,
+      "friends_count": 139,
+      "listed_count": 0,
+      "created_at": "Sat Apr 30 01:29:24 +0000 2011",
+      "favourites_count": 2,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 21,
+      "lang": "pt",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "642D8B",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme10/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme10/bg.gif",
+      "profile_background_tile": true,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/838732277140062213/6HvND1Iy_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/838732277140062213/6HvND1Iy_normal.jpg",
+      "profile_link_color": "FF0000",
+      "profile_sidebar_border_color": "65B0DA",
+      "profile_sidebar_fill_color": "7AC3EE",
+      "profile_text_color": "3D1957",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": null,
+      "follow_request_sent": null,
+      "notifications": null,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "pt"
+  },
+  {
+    "created_at": "Sat May 27 22:50:39 +0000 2017",
+    "id": 868600366459482112,
+    "id_str": "868600366459482112",
+    "text": "Infelizmente acabou mais foi bom de mais parabéns a todos os organizadores esperamos por mais eventos fantásticos igual a esse\n#DevConf2017",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "DevConf2017",
+          "indices": [
+            127,
+            139
+          ]
+        }
+      ],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": []
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 290283024,
+      "id_str": "290283024",
+      "name": "Ezequiel",
+      "screen_name": "ZicaMessore",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 40,
+      "friends_count": 139,
+      "listed_count": 0,
+      "created_at": "Sat Apr 30 01:29:24 +0000 2011",
+      "favourites_count": 2,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 21,
+      "lang": "pt",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "642D8B",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme10/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme10/bg.gif",
+      "profile_background_tile": true,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/838732277140062213/6HvND1Iy_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/838732277140062213/6HvND1Iy_normal.jpg",
+      "profile_link_color": "FF0000",
+      "profile_sidebar_border_color": "65B0DA",
+      "profile_sidebar_fill_color": "7AC3EE",
+      "profile_text_color": "3D1957",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": null,
+      "follow_request_sent": null,
+      "notifications": null,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": {
+      "id": "07d9cab91ec81002",
+      "url": "https://api.twitter.com/1.1/geo/id/07d9cab91ec81002.json",
+      "place_type": "poi",
+      "name": "Anfiteatro Bento Prado Jr.",
+      "full_name": "Anfiteatro Bento Prado Jr.",
+      "country_code": "BR",
+      "country": "Brasil",
+      "contained_within": [],
+      "bounding_box": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -47.88168838824584,
+              -21.98364259506933
+            ],
+            [
+              -47.88168838824584,
+              -21.98364259506933
+            ],
+            [
+              -47.88168838824584,
+              -21.98364259506933
+            ],
+            [
+              -47.88168838824584,
+              -21.98364259506933
+            ]
+          ]
+        ]
+      },
+      "attributes": {}
+    },
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "pt"
+  },
+  {
+    "created_at": "Sat May 27 12:00:26 +0000 2017",
+    "id": 868436730873098240,
+    "id_str": "868436730873098240",
+    "text": "Gogo primeira palestra Docker para desenvolvedores ...\n#DevConf2017",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "DevConf2017",
+          "indices": [
+            55,
+            67
+          ]
+        }
+      ],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": []
+    },
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 290283024,
+      "id_str": "290283024",
+      "name": "Ezequiel",
+      "screen_name": "ZicaMessore",
+      "location": "",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 40,
+      "friends_count": 139,
+      "listed_count": 0,
+      "created_at": "Sat Apr 30 01:29:24 +0000 2011",
+      "favourites_count": 2,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 21,
+      "lang": "pt",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "642D8B",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme10/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme10/bg.gif",
+      "profile_background_tile": true,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/838732277140062213/6HvND1Iy_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/838732277140062213/6HvND1Iy_normal.jpg",
+      "profile_link_color": "FF0000",
+      "profile_sidebar_border_color": "65B0DA",
+      "profile_sidebar_fill_color": "7AC3EE",
+      "profile_text_color": "3D1957",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": null,
+      "follow_request_sent": null,
+      "notifications": null,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 3,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "pt"
+  }
+]

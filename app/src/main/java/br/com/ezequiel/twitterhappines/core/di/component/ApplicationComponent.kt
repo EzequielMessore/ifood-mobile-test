@@ -27,6 +27,7 @@ interface ApplicationComponent {
         @BindsInstance
         fun application(application: Application): Builder
 
+        fun networkModule(module: NetworkModule): Builder
         fun appModule(appModule: ApplicationModule): Builder
 
         fun build(): ApplicationComponent

@@ -8,7 +8,7 @@ import br.com.ezequiel.twitterhappines.presentation.tweet.TweetModel
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class GetTweetsByUserId @Inject constructor(
+open class GetTweetsByUserId @Inject constructor(
     private val userService: UserService,
     private val mapper: TweetModelMapper,
     schedulersProvider: ISchedulersProvider

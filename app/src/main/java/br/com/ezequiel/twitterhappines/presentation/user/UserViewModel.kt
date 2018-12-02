@@ -1,6 +1,7 @@
 package br.com.ezequiel.twitterhappines.presentation.user
 
 import android.arch.lifecycle.MutableLiveData
+import br.com.ezequiel.twitterhappines.OpenForTesting
 import br.com.ezequiel.twitterhappines.core.platform.BaseViewModel
 import br.com.ezequiel.twitterhappines.domain.interactor.AnalyseText
 import br.com.ezequiel.twitterhappines.domain.interactor.GetTweetsByUserId
@@ -10,6 +11,7 @@ import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 import javax.inject.Inject
 
+@OpenForTesting
 class UserViewModel @Inject constructor(
     private val getUserTask: GetUser,
     private val getTweetsByUserId: GetTweetsByUserId,
@@ -27,7 +29,9 @@ class UserViewModel @Inject constructor(
                 onNext = {
                     state.value = UserData(it)
                 },
-                onError = ::onError
+                onError = {
+                    state.value = UserError(it)
+                }
             ).addTo(disposable)
     }
 
@@ -65,6 +69,6 @@ class UserViewModel @Inject constructor(
     }
 
     private fun onError(throwable: Throwable) {
-        state.value = UserError(throwable)
+        tweetState.value = TweetError(throwable)
     }
 }
