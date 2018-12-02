@@ -9,12 +9,14 @@ import android.support.test.espresso.action.ViewActions.*
 import android.support.test.espresso.assertion.ViewAssertions
 import android.support.test.espresso.assertion.ViewAssertions.doesNotExist
 import android.support.test.espresso.assertion.ViewAssertions.matches
+import android.support.test.espresso.contrib.RecyclerViewActions
+import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.espresso.matcher.ViewMatchers.*
-import android.support.v7.widget.RecyclerView
-import br.com.ezequiel.twitterhappines.base.matchers.InstanceOfView
+import br.com.ezequiel.twitterhappines.base.matchers.ChildViewAction
+import br.com.ezequiel.twitterhappines.presentation.tweet.TweetListAdapter
 import org.hamcrest.CoreMatchers
 import org.hamcrest.Matchers.allOf
-import org.hamcrest.core.AllOf
+
 
 open class BaseTestRobot {
     protected fun fillEditText(resId: Int, text: String) = onView(withId(resId)).perform(
@@ -69,8 +71,14 @@ open class BaseTestRobot {
         )
     }
 
-    protected fun checkIfItemInRecyclerView(text: String) {
-        onView(AllOf.allOf(withText(text), isDescendantOfA(InstanceOfView.instanceOf(RecyclerView::class.java))))
-            .check(matches(isDisplayed()))
+    fun clickChildViewRecyclerView(idRecyclerView: Int, idView: Int) {
+        onView(ViewMatchers.withId(idRecyclerView))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<TweetListAdapter.ViewHolder>(
+                    1,
+                    ChildViewAction.clickChildViewWithId(idView)
+                )
+            )
     }
+
 }

@@ -1,0 +1,19 @@
+{
+  "documentSentiment": {
+    "magnitude": 0.5,
+    "score": 1.2
+  },
+  "language": "pt-PT",
+  "sentences": [
+    {
+      "text": {
+        "content": "E-Brasileirão 2018: assista ao vivo à fase final do campeonato de PES oficial da CBF https://t.co/xr9OtMyVbP https://t.co/Oyg6rBNNBh",
+        "beginOffset": -1
+      },
+      "sentiment": {
+        "magnitude": 0.5,
+        "score": 0.5
+      }
+    }
+  ]
+}

@@ -21,11 +21,31 @@ class TweetActivityTest {
     }
 
     @Test
-    fun test_IfLoad_TweetsAUser() {
+    fun testWhetherTheListOfUserTweetsIsLoaded() {
         robot
             .injectTweets200()
             .start()
-            .checkHasItemList()
             .checkUsername()
+            .checkHasItemList()
     }
+
+    @Test
+    fun testShouldTheHappyMoodAppear() {
+        robot
+            .injectTweets200()
+            .injectHumorHappy()
+            .start()
+            .clickInAnalyse()
+            .checkHappyHumorIsVisible()
+    }
+
+
+    @Test
+    fun test_Unknown500() {
+        robot
+            .injectUnknown500()
+            .start()
+            .checkErrorIsVisible()
+    }
+
 }

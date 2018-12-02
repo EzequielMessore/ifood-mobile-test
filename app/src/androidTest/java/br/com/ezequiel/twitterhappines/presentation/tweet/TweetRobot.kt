@@ -20,7 +20,7 @@ class TweetRobot(
 
     init {
         server.start(36004)
-        server.url("/")
+        server.url("/v1")
     }
 
     fun destroy() {
@@ -38,8 +38,16 @@ class TweetRobot(
         server.inject(200, context getJson R.raw.tweet200)
     }
 
+    fun injectUnknown500() = apply {
+        server.inject(500, "")
+    }
+
+    fun injectHumorHappy() = apply {
+        server.inject(200, context getJson R.raw.happy_humor)
+    }
+
     fun checkHasItemList() = apply {
-        checkTextIsVisible("@Goncalojr93 Curte fazer um tweet em")
+        checkTextIsDisplayedWithDescendant("@Goncalojr93 Curte fazer um tweet em", R.id.rv_tweets)
     }
 
     fun checkUsername() = apply {
@@ -47,5 +55,18 @@ class TweetRobot(
         checkTextIsVisible("| @ZicaMessore")
     }
 
+    fun clickInAnalyse() = apply {
+        clickChildViewRecyclerView(R.id.rv_tweets, R.id.v_analise)
+    }
+
+    fun checkHappyHumorIsVisible() {
+        checkTextIsDisplayedWithDescendant("Happy Tweet", R.id.rv_tweets)
+    }
+
+    fun checkErrorIsVisible() = apply {
+        checkIdIsVisible(R.id.iv_error)
+        checkIdIsVisible(R.id.tv_title)
+        checkIdIsVisible(R.id.btn_try_again)
+    }
 
 }
