@@ -11,4 +11,5 @@
     <color name="happy_color">#eded56</color>
     <color name="neutral_color">#aeaeae</color>
     <color name="sad_color">#2626e6</color>
+    <color name="tweet_color">#1591e5</color>
 </resources>

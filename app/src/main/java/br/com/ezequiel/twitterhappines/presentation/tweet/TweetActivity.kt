@@ -5,8 +5,6 @@ import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import android.os.Build
 import br.com.ezequiel.twitterhappines.R
 import br.com.ezequiel.twitterhappines.core.extension.contentView
 import br.com.ezequiel.twitterhappines.core.platform.InjectableActivity
@@ -14,6 +12,8 @@ import br.com.ezequiel.twitterhappines.databinding.ActivityTweetBinding
 import br.com.ezequiel.twitterhappines.presentation.user.UserModel
 import br.com.ezequiel.twitterhappines.presentation.user.UserViewModel
 import kotlinx.android.synthetic.main.activity_tweet.*
+import kotlinx.android.synthetic.main.base_content.*
+import kotlinx.android.synthetic.main.container_error.view.*
 import javax.inject.Inject
 
 
@@ -34,17 +34,9 @@ class TweetActivity : InjectableActivity() {
     override fun layoutResource(): Int = R.layout.activity_tweet
 
     override fun init() {
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.statusBarColor = Color.TRANSPARENT
-        }
-
         binding.viewModel = viewModel
         binding.user = getUser()
 
-        title = getUser().name
         rv_tweets.adapter = adapter
 
         viewModel.getTweetsById(getUser().id)
@@ -55,6 +47,9 @@ class TweetActivity : InjectableActivity() {
         adapter.listener = {
             viewModel.analyseText(it)
         }
+        container_error.btn_try_again.setOnClickListener {
+            viewModel.getTweetsById(getUser().id)
+        }
     }
 
     private fun bindViewModels() {
@@ -64,7 +59,6 @@ class TweetActivity : InjectableActivity() {
             }
         })
     }
-
 
     private fun getUser() = intent.getParcelableExtra<UserModel>(USER_MODEL)
 
