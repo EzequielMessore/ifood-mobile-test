@@ -16,7 +16,7 @@ class AnalyseText @Inject constructor(
     schedulersProviders: ISchedulersProvider
 ) : UseCaseObservable<String, Humor>(schedulersProviders) {
 
-    override fun buildUseCase(params: String): Observable<Humor> =
+    final override fun buildUseCase(params: String): Observable<Humor> =
         languageService.analyseText(
             Analyse(
                 document = AnalyseDocument(

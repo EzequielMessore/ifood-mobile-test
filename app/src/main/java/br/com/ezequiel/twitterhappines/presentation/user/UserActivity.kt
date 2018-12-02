@@ -73,7 +73,7 @@ class UserActivity : InjectableActivity() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe {
                             startActivity(TweetActivity.newIntent(this, user))
-                        }.dispose()
+                        }
                 }
             }
             is UserError -> {

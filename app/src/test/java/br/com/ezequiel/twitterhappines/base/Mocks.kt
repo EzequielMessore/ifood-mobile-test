@@ -34,7 +34,7 @@ object Mocks {
     val tweetListModel = listOf(
         TweetModel(
             id = "",
-            createAt = Date(),
+            createAt = Date("25/06/1992"),
             text = "",
             favoriteCount = 0
         )
@@ -49,4 +49,5 @@ object Mocks {
     val sadResult = Result(ResultDocument(-1.0))
     val userModel = UserModel(0, "", "", Date(), "", "", "")
     val humor = Humor.NEUTRAL_EMOTION
+    val exception = Exception()
 }

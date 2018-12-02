@@ -10,8 +10,11 @@ import android.support.test.espresso.assertion.ViewAssertions
 import android.support.test.espresso.assertion.ViewAssertions.doesNotExist
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.ViewMatchers.*
+import android.support.v7.widget.RecyclerView
+import br.com.ezequiel.twitterhappines.base.matchers.InstanceOfView
 import org.hamcrest.CoreMatchers
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.core.AllOf
 
 open class BaseTestRobot {
     protected fun fillEditText(resId: Int, text: String) = onView(withId(resId)).perform(
@@ -64,5 +67,10 @@ open class BaseTestRobot {
                 isCompletelyDisplayed()
             )
         )
+    }
+
+    protected fun checkIfItemInRecyclerView(text: String) {
+        onView(AllOf.allOf(withText(text), isDescendantOfA(InstanceOfView.instanceOf(RecyclerView::class.java))))
+            .check(matches(isDisplayed()))
     }
 }

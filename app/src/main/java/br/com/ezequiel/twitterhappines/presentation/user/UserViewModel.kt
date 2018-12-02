@@ -29,7 +29,9 @@ class UserViewModel @Inject constructor(
                 onNext = {
                     state.value = UserData(it)
                 },
-                onError = ::onError
+                onError = {
+                    state.value = UserError(it)
+                }
             ).addTo(disposable)
     }
 
@@ -67,6 +69,6 @@ class UserViewModel @Inject constructor(
     }
 
     private fun onError(throwable: Throwable) {
-        state.value = UserError(throwable)
+        tweetState.value = TweetError(throwable)
     }
 }
