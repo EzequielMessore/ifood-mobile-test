@@ -13,6 +13,4 @@ infix fun Context.getJson(@RawRes raw: Int): String {
     return json
 }
 
-infix fun <T> String.jsonToObject(clazz: Class<T>): T {
-    return Gson().fromJson<T>(this, clazz)
-}
+inline fun <reified T: Any> String.jsonToObject(): T = Gson().fromJson<T>(this, T::class.java)

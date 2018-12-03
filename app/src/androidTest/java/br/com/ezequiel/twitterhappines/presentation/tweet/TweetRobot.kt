@@ -28,7 +28,8 @@ class TweetRobot(
     }
 
     fun start() = apply {
-        val user = context getJson R.raw.user200 jsonToObject User::class.java
+        val user = (context getJson R.raw.user200).jsonToObject<User>()
+
         val model = UserModelMapper().transform(user)
 
         activityRule.launchActivity(TweetActivity.newIntent(context, model))

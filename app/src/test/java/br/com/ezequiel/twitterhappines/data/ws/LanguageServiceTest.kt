@@ -20,10 +20,10 @@ class LanguageServiceTest : Spek({
         val languageApi = mock<LanguageApi>()
         val service = LanguageService(languageApi)
 
-        on("service returns something") {
+        on("service returns Emotions") {
             val callingAnalyse = Mockito.`when`(languageApi.analiseText(analyse = Mocks.analyse))
 
-            it("returns a Neutral") {
+            it("return a Neutral") {
                 callingAnalyse.thenReturn(Observable.just(Mocks.neutralResult))
                 val test = service.analyseText(Mocks.analyse).test()
 
@@ -47,7 +47,7 @@ class LanguageServiceTest : Spek({
                 test.assertValue(Humor.SAD_EMOTION)
             }
 
-            it("don't return errors and then finish") {
+            it("return without errors and then finish") {
                 callingAnalyse.thenReturn(Observable.just(Mocks.sadResult))
 
                 val test = service.analyseText(Mocks.analyse).test()

@@ -37,7 +37,7 @@ class UserViewModelTest : Spek({
             cleanArchExecutor()
         }
 
-        on("I want get an User") {
+        on("I want to get a User") {
             val ongoingStubbing = `when`(getUserTask(anyString()))
 
             it("then returns a UserModel") {
@@ -63,10 +63,10 @@ class UserViewModelTest : Spek({
             }
         }
 
-        on("I want get Tweets by user id") {
+        on("I want to get Tweets by user id") {
             val stubbing = `when`(getTweetsByUserId(anyInt()))
 
-            it("then returns a UserModel") {
+            it("then returns a list of tweets") {
                 val observer = mock<Observer<TweetState>>()
                 stubbing.thenReturn(Observable.just(Mocks.tweetListModel))
 
@@ -89,7 +89,7 @@ class UserViewModelTest : Spek({
             }
         }
 
-        on("I want analyse one text") {
+        on("I want to analyse one text") {
             val stubbing = `when`(analyseTextTask(anyString()))
 
             it("then return an Humor") {

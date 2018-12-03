@@ -21,32 +21,32 @@ class UserServiceTest : Spek({
         val userApi = mock<UserApi>()
         val service = UserService(userApi)
 
-        on("get an User") {
+        on("get User") {
             `when`(userApi.getUser(anyString())).thenReturn(Observable.just(Mocks.user))
             val test = service.getUser(anyString()).test()
             test.awaitTerminalEvent()
 
-            it("returns an user") {
+            it("return a user") {
                 test.assertValue(Mocks.user)
             }
 
-            it("don't return errors and then finish") {
+            it("return without errors and then finish") {
                 test.assertNoErrors()
                 test.assertTerminated()
             }
 
         }
 
-        on("get an Twitter List") {
+        on("get TwitterList") {
             `when`(userApi.getTweets(anyInt())).thenReturn(Observable.just(Mocks.tweetList))
             val test = service.getTweets(anyInt()).test()
             test.awaitTerminalEvent()
 
-            it("return tweet List") {
+            it("return a list of tweets") {
                 test.assertValue(Mocks.tweetList)
             }
 
-            it("don't return errors and then finish") {
+            it("return without errors and then finish") {
                 test.assertNoErrors()
                 test.assertTerminated()
             }

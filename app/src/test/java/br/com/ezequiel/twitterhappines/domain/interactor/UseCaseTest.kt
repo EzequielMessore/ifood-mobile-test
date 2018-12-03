@@ -34,7 +34,7 @@ class UseCaseTest : Spek({
                 test.assertValue(Mocks.userModel)
             }
 
-            it("don't no errors and then finish") {
+            it("return without errors and then finish") {
                 test.assertNoErrors()
                 test.assertTerminated()
             }
@@ -67,7 +67,7 @@ class UseCaseTest : Spek({
                 test.assertValue(Mocks.tweetListModel)
             }
 
-            it("don't no errors and then finish") {
+            it("return without errors and then finish") {
                 test.assertNoErrors()
                 test.assertTerminated()
             }
@@ -98,7 +98,7 @@ class UseCaseTest : Spek({
                 test.assertValue(Mocks.humor)
             }
 
-            it("don't no errors and then finish") {
+            it("return without errors and then finish") {
                 test.assertNoErrors()
                 test.assertTerminated()
             }
