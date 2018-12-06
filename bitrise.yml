@@ -54,11 +54,6 @@ workflows:
     - change-android-versioncode-and-versionname@1.1.1:
         inputs:
         - build_gradle_path: "$PROJECT_LOCATION/$MODULE/build.gradle"
-    - android-unit-test@0.9.5:
-        inputs:
-        - project_location: "$PROJECT_LOCATION"
-        - module: "$MODULE"
-        - variant: "$VARIANT"
     - android-build@0.9.5:
         inputs:
         - project_location: "$PROJECT_LOCATION"
@@ -79,11 +74,6 @@ workflows:
     - install-missing-android-tools@2.3.3:
         inputs:
         - gradlew_path: "$PROJECT_LOCATION/gradlew"
-    - android-unit-test@0.9.5:
-        inputs:
-        - project_location: "$PROJECT_LOCATION"
-        - module: "$MODULE"
-        - variant: "$VARIANT"
     - deploy-to-bitrise-io@1.3.18: {}
     - cache-push@2.0.5: {}
 app:
@@ -96,4 +86,3 @@ app:
     MODULE: app
   - opts:
       is_expand: false
-    VARIANT: _
