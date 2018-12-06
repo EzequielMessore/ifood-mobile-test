@@ -86,3 +86,4 @@ app:
     MODULE: app
   - opts:
       is_expand: false
+    VARIANT: release
