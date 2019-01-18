@@ -1,12 +1,10 @@
 package br.com.ezequiel.twitterhappines.data.ws.language
 
-import br.com.ezequiel.twitterhappines.OpenForTesting
 import br.com.ezequiel.twitterhappines.domain.datasource.LanguageDataSource
 import br.com.ezequiel.twitterhappines.presentation.tweet.Humor
 import io.reactivex.Observable
 import javax.inject.Inject
 
-@OpenForTesting
 class LanguageService @Inject constructor(
     private val api: LanguageApi
 ) : LanguageDataSource {

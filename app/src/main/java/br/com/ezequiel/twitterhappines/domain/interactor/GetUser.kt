@@ -1,6 +1,5 @@
 package br.com.ezequiel.twitterhappines.domain.interactor
 
-import br.com.ezequiel.twitterhappines.OpenForTesting
 import br.com.ezequiel.twitterhappines.core.interactor.UseCaseObservable
 import br.com.ezequiel.twitterhappines.core.scheduler.ISchedulersProvider
 import br.com.ezequiel.twitterhappines.data.mappers.UserModelMapper
@@ -9,7 +8,6 @@ import br.com.ezequiel.twitterhappines.presentation.user.UserModel
 import io.reactivex.Observable
 import javax.inject.Inject
 
-@OpenForTesting
 class GetUser @Inject constructor(
     private val userService: UserService,
     private val mapper: UserModelMapper,

@@ -9,6 +9,7 @@ import br.com.ezequiel.twitterhappines.data.ws.user.User
 import br.com.ezequiel.twitterhappines.presentation.tweet.Humor
 import br.com.ezequiel.twitterhappines.presentation.tweet.TweetModel
 import br.com.ezequiel.twitterhappines.presentation.user.UserModel
+import java.time.LocalDate
 import java.util.*
 
 object Mocks {
@@ -34,7 +35,7 @@ object Mocks {
     val tweetListModel = listOf(
         TweetModel(
             id = "",
-            createAt = Date("25/06/1992"),
+            createAt = Date(),
             text = "",
             favoriteCount = 0
         )
