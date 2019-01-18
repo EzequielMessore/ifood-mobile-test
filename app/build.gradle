@@ -8,12 +8,12 @@ allOpen {
     annotation 'br.com.ezequiel.twitterhappines.OpenClass'
 }
 
-def API_KEY = ""
+def API_KEY = "\"\""
 if (hasProperty("TWITTER_API_KEY")) {
     API_KEY = TWITTER_API_KEY
 }
 
-def LANGUAGE_KEY = ""
+def LANGUAGE_KEY = "\"\""
 if (hasProperty("LANGUAGE_API_KEY")) {
     LANGUAGE_KEY = LANGUAGE_API_KEY
 }
